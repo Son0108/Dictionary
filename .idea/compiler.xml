@@ -20,7 +20,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+<<<<<<< HEAD
       <module name="JavaFxApplication" target="1.5" />
+=======
+      <module name="JavaFxApplication" target="8" />
+>>>>>>> ba7bbc07584ddeaa269b058666adb7a17c4d66d9
     </bytecodeTargetLevel>
   </component>
 </project>
