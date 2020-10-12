@@ -26,6 +26,6 @@
          </graphic>
       </Button>
       <ChoiceBox fx:id="txt_Word" layoutX="537.0" layoutY="126.0" prefHeight="35.0" prefWidth="190.0" style="-fx-background-radius: 12px;" />
-      <TextField fx:id="tf_insertE1" alignment="CENTER" layoutX="204.0" layoutY="126.0" prefHeight="35.0" prefWidth="270.0" style="-fx-background-radius: 12px;" />
+      <TextField fx:id="tf_insertE1" alignment="CENTER" layoutX="204.0" layoutY="126.0" prefHeight="35.0" prefWidth="270.0" promptText="Transcribe" style="-fx-background-radius: 12px;" />
    </children>
 </AnchorPane>
