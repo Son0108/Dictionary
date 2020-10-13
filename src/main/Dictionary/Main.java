@@ -1,4 +1,4 @@
-package main.Dictionary.Controller;
+package main.Dictionary;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class Main extends Application {
     private double x,y;
     @Override
     public void start(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/main/Dictionary/Fxml/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/main/Dictionary/Fxmls/main.fxml"));
         stage.setScene(new Scene(root, 1200, 700));
         root.setOnMousePressed(event -> {
             x = event.getSceneX();

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFC0CB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Dictionary.Controllers.SearchController">
+   <children>
+      <TextField fx:id="tf_local_search" alignment="CENTER" layoutX="380.0" layoutY="138.0" prefHeight="35.0" prefWidth="300.0" promptText="Type" style="-fx-background-radius: 7px;" onKeyReleased="#pressKey"/>
+      <TableView fx:id="table_view" layoutY="264.0" prefHeight="436.0" prefWidth="1000.0">
+         <columns>
+            <TableColumn fx:id="WordType" prefWidth="84.0" text="Type" />
+            <TableColumn fx:id="Transcribe" prefWidth="182.0" text="Transcribe" />
+            <TableColumn fx:id="Speech" prefWidth="83.0" text="Speech" />
+            <TableColumn fx:id="VietnameseWord" prefWidth="452.0" text="Vietnamese" />
+            <TableColumn fx:id="Edit" prefWidth="100.0" text="Edit" />
+            <TableColumn fx:id="Remove" prefWidth="99.0" text="Remove" />
+         </columns></TableView>
+      <Label layoutX="260.0" layoutY="145.0" text="Search Box">
+         <font>
+            <Font name="Franklin Gothic Medium" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="141.0" layoutY="88.0" text="Search by google translate">
+         <font>
+            <Font name="Franklin Gothic Medium" size="18.0" />
+         </font>
+      </Label>
+      <TextField alignment="CENTER" layoutX="380.0" layoutY="82.0" prefHeight="35.0" prefWidth="300.0" promptText="Type" style="-fx-background-radius: 7px;" />
+      <Label layoutX="380.0" layoutY="203.0" prefHeight="35.0" prefWidth="300.0" />
+   </children>
+</AnchorPane>

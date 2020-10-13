@@ -1,4 +1,4 @@
-package main.Dictionary.Controller;
+package main.Dictionary.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Controller implements Initializable {
+public class MainController implements Initializable {
     @FXML
     private BorderPane mainPane;
 
@@ -26,19 +26,19 @@ public class Controller implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource(nameButton));
         } catch (IOException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         mainPane.setCenter(root);
     }
 
-    public void handleButtonActionHome(MouseEvent mouseEvent) { loadButton("/main/Dictionary/Fxml/home.fxml"); }
+    public void handleButtonActionHome(MouseEvent mouseEvent) { loadButton("/main/Dictionary/Fxmls/home.fxml"); }
 
     public void handleButtonActionInsert(MouseEvent mouseEvent) {
-        loadButton("/main/Dictionary/Fxml/insert.fxml");
+        loadButton("/main/Dictionary/Fxmls/insert.fxml");
     }
 
     public void handleButtonActionSearch(MouseEvent mouseEvent) {
-        loadButton("/main/Dictionary/Fxml/search.fxml");
+        loadButton("/main/Dictionary/Fxmls/search.fxml");
     }
 
 }

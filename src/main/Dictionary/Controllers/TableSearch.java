@@ -1,4 +1,4 @@
-package main.Dictionary.Controller;
+package main.Dictionary.Controllers;
 
 import javafx.beans.property.SimpleStringProperty;
 
