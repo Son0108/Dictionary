@@ -52,18 +52,19 @@ public class SearchController implements Initializable {
     @FXML
     public void pressKey(KeyEvent e){
         try {
-            posibleWords.clear();
-            ResultSet st1 = statement.executeQuery("exec spGetSearches " + tf_local_search.getText());
+            System.out.println(tf_local_search.getText());
+            ResultSet st1 = statement.executeQuery("exec spGetSearches '" + tf_local_search.getText() + "'");
             int englishId = 0;
             String transcribe = "";
+            posibleWords.clear();
             while(st1.next()){
                 posibleWords.add(st1.getString("Word"));
                 englishId = st1.getInt("EnglishId");
                 transcribe = st1.getNString("Transcribe");
             }
             if(e.getCode().getName() == "Enter"){
-
                 VietnameseRepository vietnameseRepository = new VietnameseRepository();
+                System.out.println(englishId);
                 List<VietnameseModel> vietnameseModels = vietnameseRepository.Get(englishId);
                 searchModels.clear();
                 for(VietnameseModel v:vietnameseModels) {
@@ -76,6 +77,7 @@ public class SearchController implements Initializable {
             TextFields.bindAutoCompletion(tf_local_search,posibleWords);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            System.out.println("error" + tf_local_search.getText());
         }
     }
 

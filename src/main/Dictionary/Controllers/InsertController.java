@@ -63,7 +63,7 @@ public class InsertController implements Initializable {
                 }
             }
             InsertRepository insertRepository = new InsertRepository();
-            insertRepository.Insert(tf_insertE.getText(),tf_insertV.getText(),tf_transcribe.getText(),wordTypeId);
+            insertRepository.Insert(tf_insertE.getText().trim(),tf_insertV.getText().trim(),tf_transcribe.getText(),wordTypeId);
         }
     }
 }
