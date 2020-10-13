@@ -6,7 +6,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Font;
 import main.Dictionary.Models.WordTypeModel;
 import main.Dictionary.Repositories.InsertRepository;
 import main.Dictionary.Repositories.WordTypeRepository;

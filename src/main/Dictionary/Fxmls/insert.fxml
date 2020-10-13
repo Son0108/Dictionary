@@ -3,29 +3,26 @@
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFC0CB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Dictionary.Controllers.InsertController">
    <children>
-      <TableView fx:id="table" layoutY="210.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="490.0" prefWidth="1000.0">
-        <columns>
-          <TableColumn fx:id="tbl_English" prefWidth="252.0" text="English" />
-            <TableColumn fx:id="tbl_Word" prefWidth="165.0" text="Type" />
-            <TableColumn fx:id="tbl_Word1" prefWidth="155.0" text="Transcribe" />
-          <TableColumn fx:id="tbl_Vietnamese" prefWidth="427.0" text="Vietnamese" />
-        </columns>
-      </TableView>
-      <TextField fx:id="tf_insertE" alignment="CENTER" layoutX="204.0" layoutY="50.0" prefHeight="35.0" prefWidth="270.0" promptText="Enter English" style="-fx-background-radius: 12px;" />
-      <TextField fx:id="tf_insertV" alignment="CENTER" layoutX="536.0" layoutY="50.0" prefHeight="35.0" prefWidth="270.0" promptText="Enter Vietnamese" style="-fx-background-radius: 12px;" />
-      <Button layoutX="761.0" layoutY="115.0" mnemonicParsing="false" onAction="#Insert" style="-fx-background-color: #FFC0CB;">
+      <TextField fx:id="tf_insertE" alignment="CENTER" layoutX="84.0" layoutY="193.0" prefHeight="80.0" prefWidth="430.0" promptText="Enter English" style="-fx-background-radius: 12px;" AnchorPane.topAnchor="193.0" />
+      <TextField fx:id="tf_insertV" alignment="CENTER" layoutX="84.0" layoutY="337.0" prefHeight="80.0" prefWidth="430.0" promptText="Enter Vietnamese" style="-fx-background-radius: 12px;" AnchorPane.bottomAnchor="283.0" AnchorPane.topAnchor="337.0" />
+      <Button layoutX="660.0" layoutY="341.0" mnemonicParsing="false" onAction="#Insert" style="-fx-background-color: #FFC0CB;">
          <graphic>
-            <MaterialDesignIconView glyphName="ARROW_RIGHT_BOLD_CIRCLE_OUTLINE" size="60" />
+            <MaterialDesignIconView glyphName="ARROW_RIGHT_BOLD_CIRCLE_OUTLINE" size="60" text="" />
          </graphic>
       </Button>
-      <ChoiceBox fx:id="txt_Word" layoutX="537.0" layoutY="126.0" prefHeight="35.0" prefWidth="190.0" style="-fx-background-radius: 12px;" />
-      <TextField fx:id="tf_transcribe" alignment="CENTER" layoutX="204.0" layoutY="126.0" prefHeight="35.0" prefWidth="270.0" promptText="Transcribe" style="-fx-background-radius: 12px;" />
+      <ChoiceBox fx:id="txt_Word" layoutX="641.0" layoutY="213.0" prefHeight="40.0" prefWidth="190.0" style="-fx-background-radius: 12px;" />
+      <TextField fx:id="tf_transcribe" alignment="CENTER" layoutX="84.0" layoutY="494.0" prefHeight="80.0" prefWidth="430.0" promptText="Transcribe" style="-fx-background-radius: 12px;" AnchorPane.bottomAnchor="139.0" />
+      <Label layoutX="420.0" layoutY="31.0" prefHeight="69.0" prefWidth="160.0" text="INSERT">
+         <font>
+            <Font name="MV Boli" size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
