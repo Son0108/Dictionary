@@ -1,30 +1,115 @@
 package main.Dictionary.Models;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
-import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
-import de.jensd.fx.glyphs.materialdesignicons.utils.MaterialDesignIconFactory;
-import javafx.scene.control.Button;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.util.Pair;
+import main.Dictionary.Repositories.VietnameseRepository;
+import main.Dictionary.Repositories.WordTypeRepository;
+import main.Dictionary.Services.SpeechService;
+import org.controlsfx.control.textfield.TextFields;
 
-public class SearchModel {
+import java.util.List;
+import java.util.Optional;
+
+public class SearchModel implements EventHandler<ActionEvent> {
+    private int VietnameseId;
     private String VietnameseWord;
     private String Transcribe;
+    private int WordTypeId;
     private String WordType;
     private Button Speech = new Button();
     private Button Edit = new Button();
     private Button Remove = new Button();
-    public SearchModel(String word, String transcribe, String wordType){
+    public SearchModel(int vietnameseId,String word, String transcribe, String wordType, ObservableList<SearchModel> searchModels, int index,int wordTypeId){
+        this.VietnameseId = vietnameseId;
         Button speechButton = new Button();
         Button editButton = new Button();
         Button removeButton = new Button();
 
-        Text iconspeech = MaterialDesignIconFactory.get().createIcon(MaterialDesignIcon.VOLUME_HIGH);
-        Text iconEdit = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.EDIT);
-        Text iconRemove = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.REMOVE);
-        speechButton.setGraphic(iconspeech);
-        editButton.setGraphic(iconEdit);
-        removeButton.setGraphic(iconRemove);
+        Image speechImage = new Image(getClass().getResourceAsStream("../Statics/speech.jpg"));
+        ImageView speechImageView = new ImageView(speechImage);
+
+        speechButton.setGraphic(speechImageView);
+        speechButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SpeechService.TalkResource(VietnameseWord);
+            }
+        });
+
+        Image editImage = new Image(getClass().getResourceAsStream("../Statics/edit.png"));
+        ImageView editImageView = new ImageView(editImage);
+
+        editButton.setGraphic(editImageView);
+
+        editButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                WordTypeRepository wordTypeRepository = new WordTypeRepository();
+                List<WordTypeModel> list_WordType = wordTypeRepository.Get();
+                ChoiceBox<String> choiceBox_workTypes = new ChoiceBox<>();
+                for(WordTypeModel w : list_WordType){
+                    choiceBox_workTypes.getItems().add(w.Name);
+                }
+                choiceBox_workTypes.setValue(WordType);
+                Dialog<Pair<String, String>> dialog = new Dialog<>();
+                dialog.setTitle("Edit Dialog");
+                dialog.setHeaderText("");
+                ButtonType editButtonType = new ButtonType("Save", ButtonBar.ButtonData.OK_DONE);
+                dialog.getDialogPane().getButtonTypes().addAll(editButtonType, ButtonType.CANCEL);
+
+                GridPane gridPane = new GridPane();
+                gridPane.setVgap(10);
+                gridPane.setHgap(10);
+                gridPane.setPadding(new Insets(20,150,10,10));
+                TextField newVietnameseWord = new TextField(getVietnameseWord());
+                newVietnameseWord.setPromptText("Vietnamese Word");
+
+                gridPane.add(new Label("Vietnamese Word"),0,0);
+                gridPane.add(newVietnameseWord,1,0);
+                gridPane.add(new Label("Type"),0,2);
+                gridPane.add(choiceBox_workTypes,1,2);
+                dialog.getDialogPane().setContent(gridPane);
+                dialog.setResultConverter(dialogButton -> {
+                    if(dialogButton == editButtonType){
+                        return new Pair<>(newVietnameseWord.getText().trim(),choiceBox_workTypes.getValue());
+                    }
+                    return null;
+                });
+                Optional<Pair<String, String>> result = dialog.showAndWait();
+                result.ifPresent(data->{
+                    int newWordTypeId = 0;
+                    for(WordTypeModel w: list_WordType){
+                        if(w.Name == data.getValue()){
+                            newWordTypeId = w.WordTypeId;
+                        }
+                    }
+                    VietnameseRepository vietnameseRepository = new VietnameseRepository();
+                    vietnameseRepository.Update(VietnameseId,data.getKey().trim(),1,newWordTypeId);
+                    searchModels.set(index,new SearchModel(VietnameseId,data.getKey().trim(),transcribe,data.getValue().trim(),searchModels,index,newWordTypeId));
+                });
+            }
+        });
+
+        Image removeImage = new Image(getClass().getResourceAsStream("../Statics/delete.png"));
+        ImageView removeImageView = new ImageView(removeImage);
+
+        removeButton.setGraphic(removeImageView);
+        removeButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                VietnameseRepository vietnameseRepository = new VietnameseRepository();
+                vietnameseRepository.Update(vietnameseId,getVietnameseWord(),0,wordTypeId);
+                searchModels.remove(index);
+            }
+        });
 
         this.setRemove(removeButton);
         this.setEdit(editButton);
@@ -80,5 +165,10 @@ public class SearchModel {
 
     public void setWordType(String wordType) {
         this.WordType = wordType;
+    }
+
+    @Override
+    public void handle(ActionEvent event) {
+
     }
 }

@@ -2,10 +2,8 @@ package main.Dictionary.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import main.Dictionary.Models.WordTypeModel;
 import main.Dictionary.Repositories.InsertRepository;
 import main.Dictionary.Repositories.WordTypeRepository;
@@ -15,6 +13,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class InsertController implements Initializable {
+
+    @FXML
+    private Label tf_successLaybel;
 
     @FXML
     private TableView<InsertController> table;
@@ -49,6 +50,7 @@ public class InsertController implements Initializable {
         for(WordTypeModel w : list_WordType){
             txt_Word.getItems().add(w.Name);
         }
+
     }
 
     public void Insert(javafx.event.ActionEvent actionEvent) {
@@ -63,6 +65,13 @@ public class InsertController implements Initializable {
             }
             InsertRepository insertRepository = new InsertRepository();
             insertRepository.Insert(tf_insertE.getText().trim(),tf_insertV.getText().trim(),tf_transcribe.getText(),wordTypeId);
+            this.tf_successLaybel.setText("SUCCESSFUL!!!");
+            this.tf_successLaybel.setTextFill(Color.web("#9900CC"));
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("ADD A NEW WORD SUCCESSFULLY!!!");
+            alert.setTitle("Notification");
+            alert.setHeaderText("");
+            alert.show();
         }
     }
 }

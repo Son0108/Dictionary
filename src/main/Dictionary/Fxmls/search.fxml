@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFC0CB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Dictionary.Controllers.SearchController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #FFC0CB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Dictionary.Controllers.SearchController">
    <children>
-      <TextField fx:id="tf_local_search" alignment="CENTER" layoutX="42.0" layoutY="129.0" onKeyReleased="#pressKey" prefHeight="78.0" prefWidth="380.0" promptText="Type" style="-fx-background-radius: 7px;" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="129.0" />
+      <TextField fx:id="tf_local_search" alignment="TOP_LEFT" layoutX="41.0" layoutY="119.0" onKeyReleased="#pressKey" prefHeight="78.0" prefWidth="380.0" promptText="Type" style="-fx-background-radius: 7px;" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="119.0" />
       <TableView fx:id="table_view" layoutY="264.0" prefHeight="436.0" prefWidth="1000.0">
          <columns>
             <TableColumn fx:id="WordType" prefWidth="84.0" text="Type" />
@@ -19,22 +20,26 @@
             <TableColumn fx:id="Edit" prefWidth="74.0" text="Edit" />
             <TableColumn fx:id="Remove" prefWidth="75.0" text="Remove" />
          </columns></TableView>
-      <Label layoutX="174.0" layoutY="97.0" text="Search Box">
+      <Label layoutX="174.0" layoutY="83.0" text="Search Box">
          <font>
             <Font name="Franklin Gothic Medium" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="631.0" layoutY="97.0" text="Search by google translate">
+      <Label layoutX="631.0" layoutY="83.0" text="Search by google translate">
          <font>
             <Font name="Franklin Gothic Medium" size="24.0" />
          </font>
       </Label>
-      <TextField alignment="CENTER" layoutX="584.0" layoutY="129.0" prefHeight="78.0" prefWidth="380.0" promptText="Type" style="-fx-background-radius: 7px;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="129.0" />
+      <TextField alignment="TOP_LEFT" layoutX="578.0" layoutY="119.0" prefHeight="78.0" prefWidth="380.0" promptText="Type" style="-fx-background-radius: 7px;" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="119.0" />
       <Label layoutX="380.0" layoutY="203.0" prefHeight="35.0" prefWidth="300.0" />
       <Label layoutX="394.0" layoutY="14.0" prefHeight="53.0" prefWidth="212.0" text="SEARCHING" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="394.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font name="MV Boli" size="36.0" />
          </font>
       </Label>
+      <Button fx:id="speechButton" layoutX="41.0" layoutY="205.0" mnemonicParsing="false" onAction="#speechText" prefHeight="6.0" prefWidth="25.0" text="" />
+      <Button fx:id="editButton" layoutX="111.0" layoutY="205.0" mnemonicParsing="false" onAction="#editEnglish" prefHeight="6.0" prefWidth="25.0" text="" />
+      <Button fx:id="removeButton" layoutX="181.0" layoutY="205.0" mnemonicParsing="false" onAction="#removeEnglish" prefHeight="6.0" prefWidth="25.0" text="" />
+
    </children>
 </AnchorPane>

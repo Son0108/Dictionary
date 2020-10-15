@@ -8,13 +8,13 @@ public class InsertRepository {
             conn = DriverManager.getConnection( DatabaseRepository.dbURL, DatabaseRepository.user, DatabaseRepository.pass);
             if(conn != null){
                 Statement st1 = conn.createStatement();
-                ResultSet rs1 = st1.executeQuery("exec spInsertEnglish '" + englishWord + "', '', '" + transcribe + "', 1");
+                ResultSet rs1 = st1.executeQuery("exec spInsertEnglish '" + englishWord + "', '', N'" + transcribe + "', 1");
                 rs1.next();
                 int englistId = rs1.getInt("Id");
                 System.out.println(englistId);
                 System.out.println(englistId);
                 Statement st2 = conn.createStatement();
-                ResultSet rs2 = st1.executeQuery("exec spInsertVietnamese '" + englistId + "', " + WordTypeId + ", '" + vietnameseWord + "', '', 1");
+                ResultSet rs2 = st1.executeQuery("exec spInsertVietnamese '" + englistId + "', " + WordTypeId + ", N'" + vietnameseWord + "', '', 1");
                 rs2.next();
                 st1.close();
                 st2.close();

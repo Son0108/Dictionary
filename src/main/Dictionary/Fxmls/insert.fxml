@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -17,12 +18,16 @@
             <MaterialDesignIconView glyphName="ARROW_RIGHT_BOLD_CIRCLE_OUTLINE" size="60" text="" />
          </graphic>
       </Button>
-      <ChoiceBox fx:id="txt_Word" layoutX="641.0" layoutY="213.0" prefHeight="40.0" prefWidth="190.0" style="-fx-background-radius: 12px;" />
+      <ChoiceBox fx:id="txt_Word" layoutX="610.0" layoutY="227.0" prefHeight="40.0" prefWidth="190.0" style="-fx-background-radius: 12px;" />
       <TextField fx:id="tf_transcribe" alignment="CENTER" layoutX="84.0" layoutY="494.0" prefHeight="80.0" prefWidth="430.0" promptText="Transcribe" style="-fx-background-radius: 12px;" AnchorPane.bottomAnchor="139.0" />
       <Label layoutX="420.0" layoutY="31.0" prefHeight="69.0" prefWidth="160.0" text="INSERT">
          <font>
             <Font name="MV Boli" size="40.0" />
          </font>
       </Label>
+      <Label fx:id="tf_successLaybel" layoutX="610.0" layoutY="455.0" prefHeight="80.0" prefWidth="267.0" text="" textAlignment="JUSTIFY">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
    </children>
 </AnchorPane>
