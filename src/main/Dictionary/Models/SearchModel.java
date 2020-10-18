@@ -33,7 +33,7 @@ public class SearchModel implements EventHandler<ActionEvent> {
         Button editButton = new Button();
         Button removeButton = new Button();
 
-        Image speechImage = new Image(getClass().getResourceAsStream("../Statics/speech.jpg"));
+        Image speechImage = new Image(getClass().getResourceAsStream("../Statics/speech.png"));
         ImageView speechImageView = new ImageView(speechImage);
 
         speechButton.setGraphic(speechImageView);

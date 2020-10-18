@@ -119,7 +119,7 @@ public class SearchController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         table_view.setEditable(true);
-        Image speechImage = new Image(getClass().getResourceAsStream("../Statics/speech.jpg"));
+        Image speechImage = new Image(getClass().getResourceAsStream("../Statics/speech.png"));
         ImageView speechImageView = new ImageView(speechImage);
         speechButton.setGraphic(speechImageView);
         Image editImage = new Image(getClass().getResourceAsStream("../Statics/edit.png"));
