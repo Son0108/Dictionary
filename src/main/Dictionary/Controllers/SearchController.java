@@ -89,6 +89,7 @@ public class SearchController implements Initializable {
 
             if(e.getCode().getName() == "Enter"){
                 VietnameseRepository vietnameseRepository = new VietnameseRepository();
+                System.out.println(AlphabeticalGroupId);
                 List<VietnameseModel> vietnameseModels = vietnameseRepository.Get(AlphabeticalGroupId);
                 searchModels.clear();
                 for (VietnameseModel v : vietnameseModels) {

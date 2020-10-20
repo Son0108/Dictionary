@@ -15,10 +15,10 @@
          <columns>
             <TableColumn fx:id="WordType" prefWidth="84.0" text="Type" />
             <TableColumn fx:id="Transcribe" prefWidth="182.0" text="Transcribe" />
-            <TableColumn fx:id="VietnameseWord" prefWidth="505.0" text="Vietnamese" />
-            <TableColumn fx:id="Speech" prefWidth="78.0" text="Speech" />
-            <TableColumn fx:id="Edit" prefWidth="74.0" text="Edit" />
-            <TableColumn fx:id="Remove" prefWidth="75.0" text="Remove" />
+            <TableColumn fx:id="VietnameseWord" prefWidth="572.0" text="Vietnamese" />
+            <TableColumn fx:id="Speech" prefWidth="54.0" text="Speech" />
+            <TableColumn fx:id="Edit" prefWidth="54.0" text="Edit" />
+            <TableColumn fx:id="Remove" prefWidth="54.0" text="Remove" />
          </columns></TableView>
       <Label layoutX="174.0" layoutY="83.0" text="Search Box">
          <font>
